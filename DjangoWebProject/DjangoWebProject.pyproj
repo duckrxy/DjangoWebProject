@@ -52,8 +52,13 @@
     <Folder Include="DjangoWebProject\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\carousel_angular.css" />
     <Content Include="app\static\app\content\carousel.css" />
+    <Content Include="app\static\app\scripts\angular.min.js" />
+    <Content Include="app\static\app\scripts\carousel.js" />
+    <Content Include="app\static\app\scripts\ui-bootstrap-tpls-0.14.3.min.js" />
     <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\index_angular.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
