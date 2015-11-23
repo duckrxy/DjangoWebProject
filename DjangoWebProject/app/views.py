@@ -12,7 +12,7 @@ def home(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/index_angular.html',
+        'app/index.html',
         context_instance = RequestContext(request,
         {
             'title':'Home Page',
