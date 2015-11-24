@@ -55,8 +55,12 @@
     <Content Include="app\static\app\content\carousel_angular.css" />
     <Content Include="app\static\app\content\carousel.css" />
     <Content Include="app\static\app\scripts\angular-animate.js" />
+    <Content Include="app\static\app\scripts\angular-route.js" />
+    <Content Include="app\static\app\scripts\angular-sanitize.js" />
+    <Content Include="app\static\app\scripts\angular-touch.js" />
     <Content Include="app\static\app\scripts\angular.min.js" />
     <Content Include="app\static\app\scripts\carousel.js" />
+    <Content Include="app\static\app\scripts\collapse.js" />
     <Content Include="app\static\app\scripts\ui-bootstrap-tpls-0.14.3.min.js" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\index_angular.html" />
