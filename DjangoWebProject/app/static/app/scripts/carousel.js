@@ -20,7 +20,7 @@
 //});
 
 
-angular.module('ui.bootstrap.demo', ['ui.bootstrap']).controller('CarouselDemoCtrl', function ($scope) {
+angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'ngAnimate']).controller('CarouselDemoCtrl', function ($scope) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
     var slides = $scope.slides = [];
