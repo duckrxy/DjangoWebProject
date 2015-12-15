@@ -8,7 +8,9 @@ from django.template import RequestContext
 from datetime import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from serializer import UserSerializer, GroupSerializer
+from serializer import UserSerializer, GroupSerializer, RelevanceSerializer
+from app.models import Relevance
+
 
 def home(request):
     """Renders the home page."""
@@ -63,6 +65,8 @@ def about(request):
             'year':datetime.now().year,
         })
     )
+
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

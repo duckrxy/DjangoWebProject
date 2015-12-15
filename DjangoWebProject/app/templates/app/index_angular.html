@@ -9,10 +9,11 @@
     <link href="../../static/app/content/carousel_angular.css" rel="stylesheet" />
     <link href="../../static/app/content/carousel.css" rel="stylesheet" />
     <script src="../../static/app/scripts/angular.min.js"></script>
-    <script src="../../static/app/scripts/carousel.js"></script>
+    {#<script src="../../static/app/scripts/carousel.js"></script>#}
     <script src="../../static/app/scripts/ui-bootstrap-tpls-0.14.3.min.js"></script>
     <script src="../../static/app/scripts/angular-animate.js"></script>
     <script src="../../static/app/scripts/angular-touch.js"></script>     
+    <script src="../../static/app/scripts/app.js"></script>
     <title></title>
 </head>
 <body ng-app="ui.bootstrap.demo">
@@ -145,6 +146,14 @@
       </footer>
 
     </div><!-- /.container -->
+
+    <div ng-controller="PostCall">
+        <div ng-repeat="user in users">
+            <p >{% verbatim %} {{user.username}}{% endverbatim %}</p>
+        </div>
+        
+         
+    </div>
 
 
 </body>
