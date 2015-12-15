@@ -13,6 +13,7 @@
     <script src="../../static/app/scripts/ui-bootstrap-tpls-0.14.3.min.js"></script>
     <script src="../../static/app/scripts/angular-animate.js"></script>
     <script src="../../static/app/scripts/angular-touch.js"></script>     
+    <script src="../../static/app/scripts/dropdown.js"></script>
     {#<script src="../../static/app/scripts/collapse.js"></script>#}
     <title></title>
 </head>
@@ -21,46 +22,41 @@
       <div class="container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
+          <div class="container" ng-controller="DropdownCtrl">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"  ng-click="isCollapsed = !isCollapsed">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="#">贝叶斯数据</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-            {#<div uib-collapse="isCollapsed">#}
+            <div id="navbar" class="navbar-collapse collapse" uib-collapse="isCollapsed">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
+                <li class="active"><a href="#">主页</a></li>
+                <li><a href="/about">关于</a></li>
+                <li><a href="/contact">联系我们</a></li>
+                <li id="simple-dropdown" uib-dropdown on-toggle="toggled(open)" >
+                  <a href="#" uib-dropdown-toggle>Dropdown <span class="caret"></span></a>
+                 <ul class="uib-dropdown-menu" aria-labelledby="simple-dropdown">
+                    <li >
+                        <a href="#">drop down 1</a>
+                        <a href="#">drop down 2</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-
       </div>
     </div>
 
-<div ng-controller="CarouselDemoCtrl">
-  <div style="height: auto">
+<div ng-controller="CarouselDemoCtrl" class="carousel">
+  <div style="height: auto" class="carousel-inner">
     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-      <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id">
+      <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id" class="item">
         <img ng-src="{% verbatim %}{{slide.image}}{% endverbatim %}" style="margin:auto;">
         <div class="carousel-caption">
           <h4>Slide {% verbatim %}{{slide.id}}{% endverbatim %}</h4>
@@ -71,6 +67,7 @@
     </uib-carousel>
   </div>
 </div>
+    
         
     <!-- Marketing messaging and featurettes
     ================================================== -->

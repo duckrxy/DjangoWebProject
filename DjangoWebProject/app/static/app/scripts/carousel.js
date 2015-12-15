@@ -28,6 +28,7 @@ angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'ngAnimate', 'ngTouch']).co
         var newWidth = 600 + slides.length + 1;
         slides.push({
             image: '//placekitten.com/' + newWidth + '/300',
+            //image:'../../static/app/images/carousel1.jpg',
             text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' +
               ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
         });
