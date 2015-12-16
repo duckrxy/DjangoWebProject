@@ -67,6 +67,7 @@
     <Content Include="app\static\app\scripts\angular-sanitize.js" />
     <Content Include="app\static\app\scripts\angular-touch.js" />
     <None Include="app\static\app\scripts\angular.intellisense.js" />
+    <Content Include="app\static\app\scripts\angular.js" />
     <Content Include="app\static\app\scripts\angular.min.js" />
     <Content Include="app\static\app\scripts\app.js" />
     <Content Include="app\static\app\scripts\carousel.js" />
