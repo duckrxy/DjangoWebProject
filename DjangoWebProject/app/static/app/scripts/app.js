@@ -49,7 +49,7 @@ app.controller('DropdownCtrl', function ($scope, $log) {
 
 app.controller('PostCall', function ($scope, $http) {
     var request = {
-        method: 'POST',
+        method: 'GET',
         url: '/users/',
         headers: {
             'Accept-Content': 'application/json'
@@ -60,4 +60,17 @@ app.controller('PostCall', function ($scope, $http) {
 
     })
 
+    var  request2 = {
+        method: 'POST',
+        url: '/caculate_relevance',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: { item1: '3232', item2: 'kkkk' }
+    }
+    var postdata = { 'item1': '3232', 'item2': 'kkkk' }
+    $http(request2).then(function (response) {
+        $scope.items = response.data
+
+    })
 })

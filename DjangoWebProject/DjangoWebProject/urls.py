@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^contact$', 'app.views.contact', name='contact'),
     url(r'^about', 'app.views.about', name='about'),
     url(r'^test', 'app.views.test', name='test'),
-    url(r'^caculate_item_relevance', 'app.views.home', name='caculate_item_relevance'),
+    url(r'^caculate_relevance', views.caculate_relevance),
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {
