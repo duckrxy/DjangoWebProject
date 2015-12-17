@@ -59,8 +59,6 @@ app.controller('PostCall', function ($scope, $http) {
         $scope.users = response.data
     })
 
-
-
     var  request2 = {
         method: 'POST',
         url: '/caculate_relevance',
@@ -74,4 +72,20 @@ app.controller('PostCall', function ($scope, $http) {
         $scope.items = response.data
 
     })
+
+    $scope.postrequest = function () {
+        var request2 = {
+            method: 'POST',
+            url: '/caculate_relevance',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: { item1: '3232', item2: 'kkkk' }
+        }
+        var postdata = { 'item1': '3232', 'item2': 'kkkk' }
+        $http(request2).then(function (response) {
+            $scope.items = response.data
+
+        })
+    }
 })

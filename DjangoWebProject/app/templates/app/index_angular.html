@@ -68,7 +68,15 @@
   </div>
 </div>
         
+            <div ng-controller="PostCall">
+        <div ng-repeat="user in users">
+            <p >{% verbatim %} {{user.username}}{% endverbatim %}</p>
+        </div>
+
+        <button ng-click="postrequest()">Post Data</button>
         
+         
+    </div>
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -148,13 +156,7 @@
 
     </div><!-- /.container -->
 
-    <div ng-controller="PostCall">
-        <div ng-repeat="user in users">
-            <p >{% verbatim %} {{user.username}}{% endverbatim %}</p>
-        </div>
-        
-         
-    </div>
+
 
 
 </body>

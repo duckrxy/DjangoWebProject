@@ -8,6 +8,7 @@ from django.template import RequestContext
 from datetime import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
+from rest_framework import generics, permissions
 from serializer import UserSerializer, GroupSerializer, RelevanceSerializer
 from app.models import Relevance
 from django.http import HttpResponse
@@ -72,14 +73,17 @@ def about(request):
     )
 
 @api_view(['GET', 'POST'])
+@permission_classes((permissions.AllowAny,))
 def caculate_relevance(request):
     if request.method == 'GET':
         relevance_request = Relevance(item1 = '111', item2 = '222')
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
-        data = {'item1':request.data.get('item1')}
-    
+        serilizer = RelevanceSerializer(data=request.data)
+        pass
     return JSONResponse(serilizer.data)
+
+
 
 class JSONResponse(HttpResponse):
     def __init__(self, content = b'', *args, **kwargs):
