@@ -10,6 +10,11 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from serializer import UserSerializer, GroupSerializer, RelevanceSerializer
 from app.models import Relevance
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view, permission_classes
 
 
 def home(request):
@@ -65,6 +70,22 @@ def about(request):
             'year':datetime.now().year,
         })
     )
+
+@api_view(['GET', 'POST'])
+def caculate_relevance(request):
+    if request.method == 'GET':
+        relevance_request = Relevance(item1 = '111', item2 = '222')
+        serilizer = RelevanceSerializer(relevance_request)
+    elif request.method == 'POST':
+        data = {'item1':request.data.get('item1')}
+    
+    return JSONResponse(serilizer.data)
+
+class JSONResponse(HttpResponse):
+    def __init__(self, content = b'', *args, **kwargs):
+        content = JSONRenderer().render(content)
+        kwargs['content_type'] = 'application/json'
+        return super().__init__(content, *args, **kwargs)
 
 
 
