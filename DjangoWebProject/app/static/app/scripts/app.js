@@ -58,6 +58,7 @@ app.controller('PostCall', function ($scope, $http) {
     $http(request).then(function (response) {
         $scope.users = response.data
     })
+
     
         
 })
