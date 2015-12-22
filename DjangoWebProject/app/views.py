@@ -15,8 +15,8 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from rest_framework.decorators import api_view, permission_classes
-
+from rest_framework.decorators import api_view, permission_classes, parser_classes
+import json
 
 def home(request):
     """Renders the home page."""
@@ -74,16 +74,16 @@ def about(request):
 
 @api_view(['GET', 'POST', 'PATCH'])
 @permission_classes((permissions.AllowAny, ))
+@parser_classes((JSONParser,))
 def test_api(request):
     print('test_api hit')
     if request.method == 'GET':
-        print('test_api hit')
-        relevance_request = Relevance(item1 = '111', item2 = '222')
+        item1 = request.query_params['item1']
+        item1 = request.query_params['item2']
+        relevance_request = Relevance(item1 = item1, item2 = item1)
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
-        serilizer = RelevanceSerializer(data=request.data)
-        if not serilizer.is_valid():
-            return
+        data = request.data
         pass
     elif request.method == 'PUT':
         pass
