@@ -22,8 +22,11 @@ urlpatterns = patterns('',
     url(r'^$', 'app.views.home', name='home'),
     url(r'^contact$', 'app.views.contact', name='contact'),
     url(r'^about', 'app.views.about', name='about'),
+    url(r'^test_api', views.test_api),
     url(r'^test', 'app.views.test', name='test'),
+    
     url(r'^caculate_relevance', views.caculate_relevance),
+    
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {

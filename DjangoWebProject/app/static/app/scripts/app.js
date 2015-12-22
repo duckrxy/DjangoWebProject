@@ -59,51 +59,14 @@ app.controller('PostCall', function ($scope, $http) {
         $scope.users = response.data
     })
 
-    var  request2 = {
-        method: 'POST',
-        url: '/caculate_relevance',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        data: { item1: '3232', item2: 'kkkk' }
-    }
-    var postdata = { 'item1': '3232', 'item2': 'kkkk' }
-    //$http(request2).then(function (response) {
-    //    $scope.items = response.data
-
-    //})
 
     $scope.postrequest = function () {
-        var request2 = {
-            method: 'POST',
-            url: '/caculate_relevance',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: { item1: '3232', item2: 'kkkk' }
-        }
         var postdata = { item1: '3232', item2: 'kkkk' }
-        //var postdata = 'ksksksksks'
         $http({
-            method: 'POST',
-            url: '/caculate_relevance',
+            method: 'GET',
+            url: '/test_api?item1=sss&item2=sss',
             data: postdata,
             headers: { 'Content-Type': 'application/json; charset=utf8' }
         })
-
-        //$http.post('/caculate_relevance', JSON.stringify(postdata), {
-        //    headers: {
-        //        'Content-Type': 'application/json'
-        //    }
-        //});
-
-        //var postdata = { Item1: '3232', Item2: 'kkkk' }
-        //var stringifyied = JSON.stringify(postdata)
-
-        //$http.post('/caculate_relevance', stringifyied, {
-        //    headers: {
-        //        'Content-Type': 'application/json'
-        //    }
-        //});
     }
 })

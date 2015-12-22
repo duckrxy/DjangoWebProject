@@ -72,7 +72,24 @@ def about(request):
         })
     )
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'PATCH'])
+@permission_classes((permissions.AllowAny, ))
+def test_api(request):
+    print('test_api hit')
+    if request.method == 'GET':
+        print('test_api hit')
+        relevance_request = Relevance(item1 = '111', item2 = '222')
+        serilizer = RelevanceSerializer(relevance_request)
+    elif request.method == 'POST':
+        serilizer = RelevanceSerializer(data=request.data)
+        if not serilizer.is_valid():
+            return
+        pass
+    elif request.method == 'PUT':
+        pass
+    return JSONResponse(serilizer.data)
+
+@api_view(['GET', 'POST', 'PATCH'])
 @permission_classes((permissions.AllowAny, ))
 def caculate_relevance(request):
     if request.method == 'GET':
