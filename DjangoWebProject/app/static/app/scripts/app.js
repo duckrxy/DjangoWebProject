@@ -62,14 +62,7 @@ app.controller('PostCall', function ($scope, $http) {
 
     $scope.postrequest = function () {
         var postdata = { item1: '3232', item2: 'kkkk' }
-        //$http({
-        //    method: 'GET',
-        //    url: '/test_api?item1=sss&item2=sss',
-        //    data: postdata,
-        //    headers: { 'Content-Type': 'application/json; charset=utf8' }
-        //}).then(function (response) {
-        //    $scope.item = response.data
-        //})
+
 
         $http({
             method: 'POST',
@@ -80,4 +73,21 @@ app.controller('PostCall', function ($scope, $http) {
             $scope.item = response.data
         })
     }
+
+    $scope.getrequest = function () {
+
+        var postdata = { item1: '3232', item2: 'kkkk' }
+        $http({
+            method: 'GET',
+            url: '/test_api?item1=sss&item2=sss',
+            data: postdata,
+            headers: { 'Content-Type': 'application/json; charset=utf8' }
+        }).then(function (response) {
+            $scope.item = response.data
+        })
+
+    }
+
+
+
 })
