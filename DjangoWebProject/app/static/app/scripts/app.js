@@ -1,5 +1,10 @@
 ﻿var app = angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'ngAnimate', 'ngTouch'])
 
+app.config(function ($httpProvider) {
+    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    $httpProvider.defaults.headers.common['X-CSRFToken'] = '{{ csrf_value }}';
+})
+
 app.controller('CarouselDemoCtrl', function ($scope) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
@@ -72,6 +77,10 @@ app.controller('PostCall', function ($scope, $http) {
         }).then(function (response) {
             $scope.item = response.data
         })
+        $http.post('/test_api/', postdata).then(function (response) {
+            $scope.item = response.data
+        })
+
     }
 
     $scope.getrequest = function () {

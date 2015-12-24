@@ -84,6 +84,7 @@ def test_api(request):
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
         data = request.data
+        print(request.stream.read())
         pass
     elif request.method == 'PUT':
         pass

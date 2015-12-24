@@ -72,8 +72,11 @@
         <div ng-repeat="user in users">
             <p >{% verbatim %} {{user.username}}{% endverbatim %}</p>
         </div>
-
-        <button ng-click="postrequest()">Post Data</button>
+            <form name="django form" method="post">
+                {{ csrf_token }}
+                <button ng-click="postrequest()">Post Data</button>
+            </form>
+        
                 <button ng-click="getrequest()">Get Data</button>
         <p>{% verbatim %} {{item.item1}}{% endverbatim %}</p>
         <p>{% verbatim %} {{item.item2}}{% endverbatim %}</p>
