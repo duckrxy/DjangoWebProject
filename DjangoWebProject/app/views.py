@@ -83,8 +83,9 @@ def test_api(request):
         relevance_request = Relevance(item1 = item1, item2 = item1)
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
-        data = request.data
-        pass
+        if hasattr(request, 'stream'):
+            print(request.stream.read())
+            return JSONRenderer('{item1:"no post data",item2:"no post data"}')
     elif request.method == 'PUT':
         pass
     return JSONResponse(serilizer.data)
