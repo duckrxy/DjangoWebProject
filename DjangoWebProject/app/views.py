@@ -74,7 +74,8 @@ def about(request):
 
 @api_view(['GET', 'POST', 'PATCH'])
 @permission_classes((permissions.AllowAny, ))
-@parser_classes((JSONParser,))
+#@parser_classes((JSONParser,))
+@csrf_exempt
 def test_api(request):
     print('test_api hit')
     if request.method == 'GET':
@@ -83,8 +84,12 @@ def test_api(request):
         relevance_request = Relevance(item1 = item1, item2 = item1)
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
-        data = request.data
-        print(request.stream.read())
+        # use rest framework
+        #data = request.data
+        #print(request.stream.read())
+
+        #not use rest framework
+        data = json.loads(request.body)
         pass
     elif request.method == 'PUT':
         pass
