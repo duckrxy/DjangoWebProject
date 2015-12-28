@@ -16,7 +16,6 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.decorators import api_view, permission_classes, parser_classes
-import json
 
 def home(request):
     """Renders the home page."""
@@ -84,8 +83,15 @@ def test_api(request):
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
         if hasattr(request, 'stream'):
+            #print(request.stream.read())
+            print('start extract data')
+            item1 = request.data.get('item1')
+            item2 = request.data.get('item2')
+            print(item1)
+            print(item2)
             print(request.stream.read())
-            return JSONRenderer('{item1:"no post data",item2:"no post data"}')
+            relevance_request = Relevance(item1 = item1, item2 = item2)
+            serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'PUT':
         pass
     return JSONResponse(serilizer.data)
@@ -105,15 +111,11 @@ def caculate_relevance(request):
         pass
     return JSONResponse(serilizer.data)
 
-
-
 class JSONResponse(HttpResponse):
     def __init__(self, content = b'', *args, **kwargs):
         content = JSONRenderer().render(content)
         kwargs['content_type'] = 'application/json'
         return super().__init__(content, *args, **kwargs)
-
-
 
 class UserViewSet(viewsets.ModelViewSet):
     """
