@@ -4,8 +4,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>DjangoWebProject</Name>
     <RootNamespace>DjangoWebProject</RootNamespace>
-    <InterpreterId>{acec0fa2-11ec-4821-856a-d4014b6f8233}</InterpreterId>
-    <InterpreterVersion>3.4</InterpreterVersion>
+    <InterpreterId>{215f9cda-128a-4c8b-b41f-729f4e3d7585}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -74,6 +74,7 @@
     <Content Include="app\static\app\scripts\collapse.js" />
     <Content Include="app\static\app\scripts\dropdown.js" />
     <Content Include="app\static\app\scripts\ui-bootstrap-tpls-0.14.3.min.js" />
+    <None Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\index_angular.html" />
     <Content Include="requirements.txt" />
@@ -99,7 +100,6 @@
     <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
-    <Content Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index3.html" />
@@ -113,17 +113,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env1\">
-      <Id>{acec0fa2-11ec-4821-856a-d4014b6f8233}</Id>
-      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
-      <Version>3.4</Version>
-      <Description>env1 (Python 64-bit 3.4)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>Amd64</Architecture>
-    </Interpreter>
     <Interpreter Include="env\">
       <Id>{215f9cda-128a-4c8b-b41f-729f4e3d7585}</Id>
       <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>

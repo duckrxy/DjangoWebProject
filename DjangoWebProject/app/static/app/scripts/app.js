@@ -69,14 +69,14 @@ app.controller('PostCall', function ($scope, $http) {
         var postdata = { item1: '3232', item2: 'kkkk' }
 
 
-        $http({
-            method: 'POST',
-            url: '/test_api/',
-            data: postdata,
-            headers: { 'Content-Type': 'application/json; charset=utf8' }
-        }).then(function (response) {
-            $scope.item = response.data
-        })
+        //$http({
+        //    method: 'POST',
+        //    url: '/test_api/',
+        //    data: postdata,
+        //    headers: { 'Content-Type': 'application/json; charset=utf8' }
+        //}).then(function (response) {
+        //    $scope.item = response.data
+        //})
         $http.post('/test_api/', postdata).then(function (response) {
             $scope.item = response.data
         })
@@ -94,7 +94,7 @@ app.controller('PostCall', function ($scope, $http) {
         }).then(function (response) {
             $scope.item = response.data
         })
-
+        
     }
 
 
