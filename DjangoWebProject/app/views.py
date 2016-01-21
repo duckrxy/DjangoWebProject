@@ -9,7 +9,7 @@ from datetime import datetime
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import generics, permissions
-from serializer import UserSerializer, GroupSerializer, RelevanceSerializer
+from app.serializer.serializer import UserSerializer, GroupSerializer, RelevanceSerializer
 from app.models import Relevance
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
