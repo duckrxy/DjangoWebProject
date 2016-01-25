@@ -81,6 +81,7 @@ def test_api(request):
         item1 = request.query_params['item1']
         item1 = request.query_params['item2']
         relevance_request = Relevance(item1 = item1, item2 = item1)
+        relevance_request.save()
         serilizer = RelevanceSerializer(relevance_request)
     elif request.method == 'POST':
         if hasattr(request, 'stream'):
