@@ -8,13 +8,12 @@
     <link href="../../static/app/content/bootstrap.css" rel="stylesheet" />
     <link href="../../static/app/content/carousel_angular.css" rel="stylesheet" />
     <link href="../../static/app/content/carousel.css" rel="stylesheet" />
-    {#<script src="../../static/app/scripts/angular.min.js"></script>#}
-    {#<script src="../../static/app/scripts/carousel.js"></script>#}
     <script src="../../static/app/scripts/angular.js"></script>
     <script src="../../static/app/scripts/ui-bootstrap-tpls-0.14.3.min.js"></script>
     <script src="../../static/app/scripts/angular-animate.js"></script>
     <script src="../../static/app/scripts/angular-touch.js"></script>     
     <script src="../../static/app/scripts/app.js"></script>
+    <script src="../../static/app/scripts/appService.js"></script>
     <title></title>
 </head>
 <body ng-app="ui.bootstrap.demo">
@@ -30,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">BayesDT</a>
+              <a class="navbar-brand" href="#">Home</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse" uib-collapse="isCollapsed">
               <ul class="nav navbar-nav">
@@ -77,11 +76,11 @@
                 <button ng-click="postrequest()">Post Data</button>
             </form>
         
-                <button ng-click="getrequest()">Get Data</button>
+                <button ng-click="getrequest()" class="btn-outline-inverse">Get Data</button>
         <p>{% verbatim %} {{item.item1}}{% endverbatim %}</p>
         <p>{% verbatim %} {{item.item2}}{% endverbatim %}</p>
         
-         
+         <p>{% verbatim %} {{gettestresult}}{% endverbatim %}</p>
     </div>
     <!-- Marketing messaging and featurettes
     ================================================== -->

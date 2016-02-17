@@ -1,4 +1,4 @@
-﻿var app = angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'ngAnimate', 'ngTouch'])
+﻿var app = angular.module('ui.bootstrap.demo', ['ui.bootstrap', 'ngAnimate', 'ngTouch', 'appservice'])
 
 app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -52,7 +52,7 @@ app.controller('DropdownCtrl', function ($scope, $log) {
     $scope.isCollapsed = false;
 });
 
-app.controller('PostCall', function ($scope, $http) {
+app.controller('PostCall', ['calculate', function ($scope, $http) {
     var request = {
         method: 'GET',
         url: '/users/',
@@ -94,9 +94,9 @@ app.controller('PostCall', function ($scope, $http) {
         }).then(function (response) {
             $scope.item = response.data
         })
-        
+
     }
 
+    $scope.gettestresult = calculate.returnResult(3, 5);
 
-
-})
+}]);
