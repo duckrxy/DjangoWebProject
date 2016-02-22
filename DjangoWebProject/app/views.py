@@ -117,7 +117,7 @@ class JSONResponse(HttpResponse):
     def __init__(self, content = b'', *args, **kwargs):
         content = JSONRenderer().render(content)
         kwargs['content_type'] = 'application/json'
-        return super().__init__(content, *args, **kwargs)
+        return super(JSONResponse,self).__init__(content, *args, **kwargs)
 
 class UserViewSet(viewsets.ModelViewSet):
     """
